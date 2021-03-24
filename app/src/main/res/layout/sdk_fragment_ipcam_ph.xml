@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextureView
+        android:id="@+id/textureview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
+    <LinearLayout
+        android:weightSum="1"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/ppg_graph"
+            android:layout_weight="0.25"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/accx_graph"
+            android:layout_weight="0.25"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/accy_graph"
+            android:layout_weight="0.25"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/accz_graph"
+            android:layout_weight="0.25"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/state_txt"
+        android:textSize="20dp"
+        android:text="disConnected"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true">
+
+        <Button
+            android:id="@+id/btn_conn"
+            android:text="CONN"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btn_flash"
+            android:text="FLASH"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

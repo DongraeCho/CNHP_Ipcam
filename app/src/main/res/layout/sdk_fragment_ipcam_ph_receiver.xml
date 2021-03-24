@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <ImageView
+        android:id="@+id/server_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"/>
+
+    <LinearLayout
+        android:weightSum="1"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/ppg_graph"
+            android:layout_weight="0.25"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/accx_graph"
+            android:layout_weight="0.25"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/accy_graph"
+            android:layout_weight="0.25"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/accz_graph"
+            android:layout_weight="0.25"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/state_txt"
+        android:textSize="20dp"
+        android:text = "0.0.0.0:0000"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_conn"
+            android:text = "Conn"
+            android:textSize="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btn_rec"
+            android:text="START"
+            android:textSize="20dp"
+            android:enabled="false"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.progressindicator.LinearProgressIndicator
+        android:id="@+id/state_progress"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingRight="5dp"
+        android:paddingLeft="5dp"
+        android:paddingBottom="5dp"
+        app:trackThickness="16dp"
+        app:trackCornerRadius="8dp" />
+
+</RelativeLayout>

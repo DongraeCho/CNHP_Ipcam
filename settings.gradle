@@ -1,0 +1,5 @@
+include ':deepmediipcam'
+include ':deepmedimeasure'
+include ':deepmedialgorithms'
+include ':app'
+rootProject.name = "cnhp_ipcam"
