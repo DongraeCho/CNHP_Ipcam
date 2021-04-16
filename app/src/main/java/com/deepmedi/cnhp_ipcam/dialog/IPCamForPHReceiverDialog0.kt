@@ -7,10 +7,11 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
-import com.google.android.material.button.MaterialButtonToggleGroup
+import com.deepmedi.cnhp_ipcam.R
 import com.deepmedi.deepmedimeasure.utils.PrefUtil
 
-import com.deepmedi.cnhp_ipcam.R
+
+import com.google.android.material.button.MaterialButtonToggleGroup
 
 class IPCamForPHReceiverDialog0 (private val activity: Activity){
 
@@ -23,6 +24,7 @@ class IPCamForPHReceiverDialog0 (private val activity: Activity){
                       recTime:Int,
                       age:Int,
                       gender:Int,
+                      label:Int,
                       height:Int,
                       weight:Int)
         fun exceptions(e:String)
@@ -47,6 +49,7 @@ class IPCamForPHReceiverDialog0 (private val activity: Activity){
             this.window?.attributes = params as WindowManager.LayoutParams
 
             var gender = 0
+            var label = 0
             PrefUtil.getIntValue(context, "chunngnam_rectiem", 0).run {
                 if(this != 0) findViewById<EditText>(R.id.edit_rec_time).setText(this.toString())
             }
@@ -60,7 +63,7 @@ class IPCamForPHReceiverDialog0 (private val activity: Activity){
                     val age = findViewById<EditText>(R.id.edit_age).text.toString().toInt()
 
                     PrefUtil.setIntValue(context, "chunngnam_rectiem", recTime)
-                    mListener?.okayClick(patient, recTime, age, gender, height, weight)
+                    mListener?.okayClick(patient, recTime, age, gender, label, height, weight)
                 }catch (e:Exception){
                     mListener?.exceptions("항목을 다 채워주세요...")
                 }
@@ -77,6 +80,12 @@ class IPCamForPHReceiverDialog0 (private val activity: Activity){
                 when(group.checkedButtonId){
                     findViewById<Button>(R.id.btn_man).id->{ gender = 0 }
                     findViewById<Button>(R.id.btn_woman).id->{ gender = 1 }
+                }
+            }
+            findViewById<MaterialButtonToggleGroup>(R.id.labeling).addOnButtonCheckedListener { group, _, _ ->
+                when(group.checkedButtonId){
+                    findViewById<Button>(R.id.btn_yes).id->{ label = 1 }
+                    findViewById<Button>(R.id.btn_no).id->{ label = 0 }
                 }
             }
             show()

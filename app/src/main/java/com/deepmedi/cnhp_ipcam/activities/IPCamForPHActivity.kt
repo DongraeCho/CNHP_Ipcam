@@ -163,8 +163,9 @@ class IPCamForPHActivity : AppCompatActivity(){
                                         "Patient: ${UserDataCNPH.patient.toString()} \n" +
                                                 "Age: ${UserDataCNPH.age.toString()} \n" +
                                                 "Height: ${UserDataCNPH.height.toString()} \n" +
-                                                "Weight: ${UserDataCNPH.weight.toString()} \n " +
-                                                "Gender :" + if(UserDataCNPH.gender==0) "MALE" else "FEMALE"
+                                                "Weight: ${UserDataCNPH.weight.toString()} \n" +
+                                                "Gender: ${if(UserDataCNPH.gender==0) "MALE" else "FEMALE "} \n" +
+                                                "Label: ${if(UserDataCNPH.label==0) "X" else "O"}"
                                     )
                                 }
                             }
@@ -206,6 +207,7 @@ class IPCamForPHActivity : AppCompatActivity(){
                     JSONObject(String(data)).run{
                         UserDataCNPH.patient = get("patient") as String
                         UserDataCNPH.gender = get("gender") as Int
+                        UserDataCNPH.label = get("label") as Int
                         UserDataCNPH.age = get("age") as Int
                         UserDataCNPH.height = get("height") as Int
                         UserDataCNPH.weight = get("weight") as Int

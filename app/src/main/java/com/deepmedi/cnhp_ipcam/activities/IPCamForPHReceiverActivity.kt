@@ -6,6 +6,8 @@ import android.content.pm.ActivityInfo
 import android.graphics.Color
 import android.net.wifi.WifiManager
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.ImageView
@@ -75,11 +77,12 @@ class IPCamForPHReceiverActivity : AppCompatActivity() {
                 dialogStart(this@IPCamForPHReceiverActivity).run {
                     setOnIPCamForPHReceiverDialog0Listener(object :
                         IPCamForPHReceiverDialog0.IPCamForPHReceiverDialog0Listener {
-                        override fun okayClick(patient: String, recTime: Int, age: Int, gender: Int, height: Int, weight: Int) {
+                        override fun okayClick(patient: String, recTime: Int, age: Int, gender: Int, label: Int, height: Int, weight: Int) {
                             val sendString = """{ "patient":$patient, 
                                                   "recTime":$recTime, 
                                                   "age":$age, 
                                                   "gender":$gender,
+                                                  "label":$label,
                                                   "height":$height,
                                                   "weight":$weight}"""
                             serverTCP.write(sendString.toByteArray(Charsets.UTF_8))
@@ -110,7 +113,7 @@ class IPCamForPHReceiverActivity : AppCompatActivity() {
 
             override fun getByteArray(data: ByteArray) {
                 runOnUiThread {
-                    CamDataConv.getDataArrange(data, 10).let {
+                    CamDataConv.getDataArrange(data, 10)?.let {
                         if(it.getState()){
                             findViewById<ImageView>(R.id.server_view).setImageBitmap(it.getBitmap())
                             findViewById<LinearProgressIndicator>(R.id.state_progress).progress = it.getDataLen()
@@ -147,7 +150,8 @@ class IPCamForPHReceiverActivity : AppCompatActivity() {
                         text = "IP Address : ${getIPAddress(wifiManager)}"
                     }
                     findViewById<LinearProgressIndicator>(R.id.state_progress).progress = 0
-                    finish()
+                    Handler(Looper.getMainLooper())
+                        .postDelayed(Runnable { recreate() }, 3000)
                 }
             }
 

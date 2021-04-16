@@ -1,7 +1,7 @@
 package com.deepmedi.cnhp_ipcam.sdk
 
-import com.deepmedi.deepmedimeasure.utils.SaveUtil
 import com.deepmedi.cnhp_ipcam.utils.UserDataCNPH
+import com.deepmedi.deepmedimeasure.utils.SaveUtil
 import com.google.gson.JsonObject
 import okhttp3.MediaType
 import okhttp3.OkHttpClient
@@ -33,6 +33,7 @@ class ServerCommCNPH {
             @Part("height") height: RequestBody,
             @Part("weight") weight: RequestBody,
             @Part("gender") gender: RequestBody,
+            @Part("label") label: RequestBody,
             @Part("ppg\"; filename=\"test.txt\" ") ppg: RequestBody,
             @Part("acc\"; filename=\"test.txt\" ") acc: RequestBody,
             @Part("gyro\"; filename=\"test.txt\" ") gyro: RequestBody
@@ -59,6 +60,7 @@ class ServerCommCNPH {
             height = RequestBody.create(MediaType.parse("text/plain"), UserDataCNPH.height.toString()),
             weight = RequestBody.create(MediaType.parse("text/plain"), UserDataCNPH.weight.toString()),
             gender = RequestBody.create(MediaType.parse("text/plain"), UserDataCNPH.gender.toString()),
+            label = RequestBody.create(MediaType.parse("text/plain"), UserDataCNPH.label.toString()),
             ppg = RequestBody.create(MediaType.parse("text/*"), File(SaveUtil.filePath, SaveUtil.ppgName)),
             acc = RequestBody.create(MediaType.parse("text/*"), File(SaveUtil.filePath, SaveUtil.accName)),
             gyro = RequestBody.create(MediaType.parse("text/*"), File(SaveUtil.filePath, SaveUtil.gyroName))

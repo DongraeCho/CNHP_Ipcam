@@ -8,10 +8,8 @@ import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import com.deepmedi.deepmedimeasure.utils.PrefUtil
-
 import com.deepmedi.cnhp_ipcam.R
-
+import com.deepmedi.deepmedimeasure.utils.PrefUtil
 
 class IPCamForPHDialog0 (private val activity: Activity){
 

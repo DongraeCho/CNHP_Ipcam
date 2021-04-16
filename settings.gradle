@@ -1,5 +1,5 @@
-include ':deepmediipcam'
 include ':deepmedimeasure'
+include ':deepmediipcam'
 include ':deepmedialgorithms'
 include ':app'
 rootProject.name = "cnhp_ipcam"

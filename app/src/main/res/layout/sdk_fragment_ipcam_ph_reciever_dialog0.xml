@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:weightSum="1"
-        android:layout_weight="0.1667"
+        android:layout_weight="0.1429"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="0dp">
@@ -54,7 +54,7 @@
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:weightSum="1"
-        android:layout_weight="0.1667"
+        android:layout_weight="0.1429"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -74,7 +74,7 @@
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:weightSum="1"
-        android:layout_weight="0.1667"
+        android:layout_weight="0.1429"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -93,7 +93,7 @@
     <com.google.android.material.textfield.TextInputLayout
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:weightSum="1"
-        android:layout_weight="0.1667"
+        android:layout_weight="0.1429"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -111,7 +111,7 @@
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/gender"
         android:layout_gravity="center"
-        android:layout_weight="0.1667"
+        android:layout_weight="0.1429"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -140,9 +140,41 @@
 
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
+    <com.google.android.material.button.MaterialButtonToggleGroup
+        android:id="@+id/labeling"
+        android:layout_gravity="center"
+        android:layout_weight="0.1429"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:weightSum="1"
+        app:checkedButton="@id/btn_no"
+        app:selectionRequired="true"
+        app:singleSelection="true">
+
+        <Button
+            android:id="@+id/btn_no"
+            android:textSize="20dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="X" />
+
+        <Button
+            android:id="@+id/btn_yes"
+            android:textSize="20dp"
+            style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="O" />
+
+    </com.google.android.material.button.MaterialButtonToggleGroup>
+
     <LinearLayout
         android:weightSum="1"
-        android:layout_weight="0.1667"
+        android:layout_weight="0.1429"
         android:layout_width="match_parent"
         android:layout_height="0dp">
 

@@ -1,7 +1,5 @@
 package com.deepmedi.cnhp_ipcam.sdk
 
-import android.graphics.*
-import android.util.Log
 import androidx.lifecycle.LifecycleOwner
 import com.deepmedi.deepmedialgorithms.dsp.Butterworth
 import com.deepmedi.deepmedialgorithms.dsp.Filter
@@ -13,9 +11,6 @@ import com.deepmedi.deepmedimeasure.repository.sensor.RepositorySensor
 import com.deepmedi.deepmedimeasure.viewmodel.Cam30ViewModel
 import com.deepmedi.deepmedimeasure.viewmodel.RecordViewModel
 import com.deepmedi.deepmedimeasure.viewmodel.SensorViewModel
-import kotlinx.coroutines.*
-import org.koin.android.ext.android.inject
-import java.util.concurrent.Executors
 
 class IPCamForPhSDK (
     private val viewLifecycleOwner: LifecycleOwner,
@@ -160,7 +155,7 @@ class IPCamForPhSDK (
             })
 
             mPosition.observe(viewLifecycleOwner, EventObserver {
-                postureDetect = it
+                postureDetect = true
             })
 
             mProximity.observe(viewLifecycleOwner, EventObserver {

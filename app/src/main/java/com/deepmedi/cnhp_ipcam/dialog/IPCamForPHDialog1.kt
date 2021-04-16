@@ -7,7 +7,6 @@ import android.view.Window
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
-
 import com.deepmedi.cnhp_ipcam.R
 
 class IPCamForPHDialog1 (private val activity: Activity){
@@ -33,7 +32,7 @@ class IPCamForPHDialog1 (private val activity: Activity){
 
             val params = window?.attributes?.also{
                 it.width = width.times(3f).div(4f).toInt()
-                it.height = height.times(2f).div(5f).toInt()
+                it.height = height.times(1f).div(2f).toInt()
             }
 
             this.window?.attributes = params as WindowManager.LayoutParams
